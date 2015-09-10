@@ -10,9 +10,11 @@ import java.util.Map;
  * Created by maratest on 9/9/15.
  */
 public class HomePageObjects {
-    public static final String RESOURCEID = "com.mara.maramentor:id/";
 
-    @AndroidFindBy(id = RESOURCEID + "action_search")
+    //public static final String RESOURCEID = "com.mara.maramentor:id/";
+
+
+    @AndroidFindBy(id = "com.mara.maramentor:id/action_search")
     @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")
     public MobileElement SEARCHBTN;
 }

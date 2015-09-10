@@ -48,8 +48,8 @@ public class Utils {
         capabilities.setCapability("app", System.getProperty("user.dir") + "/build/MaraMentor.apk");
         capabilities.setCapability("appPackage", "com.mara.maramentor");
         capabilities.setCapability("appActivity", "com.mara.maramentor.ui.SplashActivity");
-        //driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:" + System.getProperty("environment") + "/wd/hub"), capabilities);
+        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        //driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:" + System.getProperty("environment") + "/wd/hub"), capabilities);
 
     }
 

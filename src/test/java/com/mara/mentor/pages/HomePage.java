@@ -6,12 +6,14 @@ import com.mara.mentor.pageobjects.WelcomePageObjects;
 import com.mara.mentor.util.AppiumTestBase;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import sun.rmi.runtime.Log;
 
 /**
  * Created by maratest on 9/9/15.
  */
 public class HomePage extends AppiumTestBase {
     HomePageObjects homePageObjects = new HomePageObjects();
+    LoginPageObjects loginPageObjects = new LoginPageObjects();
 
     public HomePage(AppiumDriver<MobileElement> driver)
     {
@@ -21,8 +23,9 @@ public class HomePage extends AppiumTestBase {
     public boolean verifySearchBtnDisplayed(AppiumDriver<MobileElement> driver) throws InterruptedException {
         Thread.sleep(5000);
         System.out.println("Need to implement logic to assert search btn shown on news and update page");
-        return true;
-        //return homePageObjects.SEARCHBTN.isDisplayed();
+        //return true;
+        waitForPageToLoad(driver,loginPageObjects.SEARCHBTN);
+        return loginPageObjects.SEARCHBTN.isDisplayed();
     }
 
 
