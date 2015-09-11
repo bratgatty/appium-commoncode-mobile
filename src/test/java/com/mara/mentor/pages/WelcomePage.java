@@ -17,7 +17,6 @@ public class WelcomePage extends AppiumTestBase {
 
     // create a welcomepageobject so that we can access all ids from the WelcomePageObjects class
     WelcomePageObjects welcomePageObjects = new WelcomePageObjects();
-    LoginPageObjects loginPageObjects = new LoginPageObjects();
 
     public WelcomePage(AppiumDriver<MobileElement> driver) {
         super(driver);
