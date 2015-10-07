@@ -4,6 +4,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -48,6 +50,7 @@ public class Utils {
         capabilities.setCapability("app", System.getProperty("user.dir") + "/build/MaraMentor.apk");
         capabilities.setCapability("appPackage", "com.mara.maramentor");
         capabilities.setCapability("appActivity", "com.mara.maramentor.ui.SplashActivity");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
         driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         //driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:" + System.getProperty("environment") + "/wd/hub"), capabilities);
 
@@ -59,10 +62,10 @@ public class Utils {
         File app = new File(appDir, "MaraMentorDebug.ipa");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","iOS");
-        capabilities.setCapability("udid","2dc3bf20559d41565d9f1fd08f738183d9a54ead");
-        capabilities.setCapability("platformVersion", "8.3");
+        capabilities.setCapability("udid","395d9fe270dd8176cef698ceb65bc675598bb0ec");
+        capabilities.setCapability("platformVersion", "8.4");
         capabilities.setCapability("bundleId","com.maraMentor");
-        capabilities.setCapability("deviceName", "iPhone 4S");
+        capabilities.setCapability("deviceName", "Anupamas");
         capabilities.setCapability("app", app.getAbsolutePath());
         driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }

@@ -17,4 +17,7 @@ public class HomePageObjects {
     @AndroidFindBy(id = "com.mara.maramentor:id/action_search")
     @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")
     public MobileElement SEARCHBTN;
+    
+    @AndroidFindBy(xpath="//android.widget.ImageButton[1]")
+    public MobileElement SIDENAVIGATIONBTN;
 }

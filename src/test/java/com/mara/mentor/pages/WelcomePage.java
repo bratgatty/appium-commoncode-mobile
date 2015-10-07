@@ -44,4 +44,8 @@ public class WelcomePage extends AppiumTestBase {
         return new LoginPage(driver);
 
     }
+    
+    public boolean verifyLoginBtnDisplayed(AppiumDriver<MobileElement> driver){
+        return welcomePageObjects.LOGINBTN.isDisplayed();
+    }
 }
