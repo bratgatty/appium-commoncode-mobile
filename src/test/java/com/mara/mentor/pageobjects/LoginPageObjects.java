@@ -24,14 +24,14 @@ public class LoginPageObjects {
     @AndroidFindBy(id = RESOURCEID + "country_code_tv")
     public MobileElement COUNTRYCODE;
 
-    @AndroidFindBy(name = "Algeria")
+    @AndroidFindBy(name = "India")
     public MobileElement COUNTRYNAME;
 
-    public static final String MOBILENUMBER = "9964069502";
+    public static final String MOBILENUMBER = "9739739792";
 
     public static final String MOBILENUMBERiOS = "9964069506";
 
-    public static final String PASSWORD = "admin123";
+    public static final String PASSWORD = "aaa111";
 
     //Next screen object needs to be defined in the current screen when waitForPageToLoad method is called
     @AndroidFindBy(id = RESOURCEID + "action_search")

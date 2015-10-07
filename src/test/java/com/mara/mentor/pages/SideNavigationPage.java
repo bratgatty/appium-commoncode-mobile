@@ -12,7 +12,6 @@ import com.mara.mentor.util.AppiumTestBase;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 
@@ -34,6 +33,14 @@ public class SideNavigationPage extends AppiumTestBase{
 		waitForPageToLoad(driver, sideNavigationObjects.LOGOUTBTN);
 		return new SideNavigationPage(driver);
 	}
+	
+	//To click on Profile Image
+	public ProfilePage tapProfile(AppiumDriver<MobileElement> driver)
+	{
+		sideNavigationObjects.PROFILEIMAGE.click();
+		return new ProfilePage(driver);
+	}
+	
 	
 	  //Method to logout
     public WelcomePage logout(AppiumDriver<MobileElement> driver){

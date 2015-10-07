@@ -1,6 +1,5 @@
 package com.mara.mentor.pages;
 
-import com.mara.mentor.pageobjects.LoginPageObjects;
 import com.mara.mentor.pageobjects.WelcomePageObjects;
 import com.mara.mentor.util.AppiumTestBase;
 import io.appium.java_client.AppiumDriver;

@@ -8,14 +8,12 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-import java.awt.List;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import javax.swing.Scrollable;
 
 /**
  * Created by maratest on 9/8/15.
@@ -47,11 +45,11 @@ public class LoginPage extends AppiumTestBase {
         input = new FileInputStream("property/platform.properties");
         prop.load(input);
         if(prop.getProperty("platform").equals("android")){
-            loginPageObjects.COUNTRYCODE.click();
+            //loginPageObjects.COUNTRYCODE.click();
             //driver.scrollTo("+51").click();
             //driver.scrollToExact("India").click();
-            waitForPageToLoad(driver,loginPageObjects.COUNTRYNAME);
-            loginPageObjects.COUNTRYNAME.click();
+            //waitForPageToLoad(driver,loginPageObjects.COUNTRYNAME);
+            //loginPageObjects.COUNTRYNAME.click();
             waitForPageToLoad(driver,loginPageObjects.MOBILENUMBERFIELD);
             
         }
