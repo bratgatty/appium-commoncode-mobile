@@ -19,4 +19,17 @@ public class HomePageObjects {
     
     @AndroidFindBy(xpath="//android.widget.ImageButton[1]")
     public MobileElement SIDENAVIGATIONBTN;
+    
+    
+    @AndroidFindBy(id = "com.mara.maramentor:id/search_view")
+    //@iOSFindBy()
+    public MobileElement searchTextField;
+    
+    @AndroidFindBy(id = "com.mara.maramentor:id/search")
+     public MobileElement searchIcon;
+    
+    
+    public String searchtext="sharath";
+
+
 }
