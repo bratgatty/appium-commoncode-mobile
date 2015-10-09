@@ -36,7 +36,7 @@ public class SearchTest
 	}
 	
 	@Test
-	public void test_Followersclick() throws IOException, InterruptedException{
+	public void ValidSearch() throws IOException, InterruptedException{
 		welcomePage = new WelcomePage(driver);
 		HomePage homePage = welcomePage.waitforWelcomePage(driver)
                 .clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver).search(driver);

@@ -36,7 +36,7 @@ public class ProfilePageTest {
 	}
 	
 	@Test
-	public void test_Followersclick() throws IOException, InterruptedException{
+	public void FollowersClick() throws IOException, InterruptedException{
 		welcomePage = new WelcomePage(driver);
 		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
 		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
@@ -47,7 +47,7 @@ public class ProfilePageTest {
 	}
 	
 	@Test
-	public void test_Followingclick() throws IOException, InterruptedException{
+	public void FollowingClick() throws IOException, InterruptedException{
 		welcomePage = new WelcomePage(driver);
 		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
 		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
@@ -58,7 +58,7 @@ public class ProfilePageTest {
 	}
 	
 	@Test
-	public void test_Activityclick() throws IOException, InterruptedException{
+	public void ActivityClick() throws IOException, InterruptedException{
 		welcomePage = new WelcomePage(driver);
 		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
 		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
