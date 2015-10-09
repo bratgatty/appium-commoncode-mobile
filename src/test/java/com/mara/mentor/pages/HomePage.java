@@ -45,7 +45,7 @@ public class HomePage extends AppiumTestBase {
     
   
 
-    //Rahul - Need to implement Search API assertion
+    //Rahul - Need to implement Search API assertion to compare with results shown on screen
     public HomePage search(AppiumDriver<MobileElement> driver)
     {
           homePageObjects.SEARCHBTN.click();
