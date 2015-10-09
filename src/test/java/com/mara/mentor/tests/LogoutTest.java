@@ -30,20 +30,28 @@ public class LogoutTest {
 
     @Test(priority = 1)
     public void logout() throws InterruptedException, IOException {
+
+
+        ///***********Need to write a logic to check if the user is already logged in.
+        // If not, then go ahead and login else skip the below code***************
+
         welcomePage = new WelcomePage(driver);
+        homePage = new HomePage(driver);
         // this test will validate the following conditions
         // wait for WelcomePage to appear
         // click on the Login button
         // Wait for the Login screen to appear
         // Enter valid credentials and tap Sign In button
         // Wait and assert for the Home screen to be displayed
-        homePage = welcomePage.waitforWelcomePage(driver)
-                .clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+        homePage = welcomePage.waitforWelcomePage(driver).
+                clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
         Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+
         //To logout
         //Wait for welcomepage to appear
-        welcomePage = homePage.sideNavigationTap(driver).waitForSideNavaigationPage(driver).logout(driver).waitforWelcomePage(driver);
-        //Assert.assertTrue(welcomePage.verifyLoginBtnDisplayed(driver));
+        welcomePage = homePage.sideNavigationTap(driver)
+                .waitForSideNavaigationPage(driver).logout(driver).waitforWelcomePage(driver);
+        Assert.assertTrue(welcomePage.verifyLoginBtnDisplayed(driver));
     }
 
     @AfterClass(alwaysRun = true)

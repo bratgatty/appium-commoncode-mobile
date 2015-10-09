@@ -62,10 +62,10 @@ public class Utils {
         File app = new File(appDir, "MaraMentorDebug.ipa");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","iOS");
-        capabilities.setCapability("udid","395d9fe270dd8176cef698ceb65bc675598bb0ec");
+        capabilities.setCapability("udid","2dc3bf20559d41565d9f1fd08f738183d9a54ead");
         capabilities.setCapability("platformVersion", "8.4");
         capabilities.setCapability("bundleId","com.maraMentor");
-        capabilities.setCapability("deviceName", "Anupamas");
+        capabilities.setCapability("deviceName", "Brattys");
         capabilities.setCapability("app", app.getAbsolutePath());
         driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }

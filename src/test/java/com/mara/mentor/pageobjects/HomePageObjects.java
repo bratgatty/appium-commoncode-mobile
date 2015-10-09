@@ -18,6 +18,7 @@ public class HomePageObjects {
     public MobileElement SEARCHBTN;
     
     @AndroidFindBy(xpath="//android.widget.ImageButton[1]")
+    @iOSFindBy(xpath = "//UIAButton[4]")
     public MobileElement SIDENAVIGATIONBTN;
     
     

@@ -38,6 +38,7 @@ public class HomePage extends AppiumTestBase {
     //Method to tap on side navigation
     public SideNavigationPage sideNavigationTap(AppiumDriver<MobileElement> driver)
     {
+
     	homePageObjects.SIDENAVIGATIONBTN.click();
     	return new SideNavigationPage(driver);
     }

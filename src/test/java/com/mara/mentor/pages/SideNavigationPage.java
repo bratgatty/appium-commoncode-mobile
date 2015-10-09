@@ -45,12 +45,7 @@ public class SideNavigationPage extends AppiumTestBase{
 	  //Method to logout
     public WelcomePage logout(AppiumDriver<MobileElement> driver){
     	sideNavigationObjects.LOGOUTBTN.click();
-    	wait.until(ExpectedConditions.alertIsPresent());
-    	//Alert alert = driver.switchTo().alert();
-    	//alert.accept();
-    	driver.switchTo().defaultContent();
-    	driver.findElement(By.id("android:id/button1")).click();
-    	driver.switchTo().defaultContent();
+		sideNavigationObjects.YESOKBTN.click();
     	return new WelcomePage(driver);
     	
     }
