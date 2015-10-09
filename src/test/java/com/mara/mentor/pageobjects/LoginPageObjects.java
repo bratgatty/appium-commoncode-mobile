@@ -18,20 +18,20 @@ public class LoginPageObjects {
     public MobileElement PASSWORDFIELD;
 
     @AndroidFindBy(id = RESOURCEID + "log_btn_logpage")
-    @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[2]")
+    @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[3]")
     public MobileElement SIGNINBTN;
 
     @AndroidFindBy(id = RESOURCEID + "country_code_tv")
     public MobileElement COUNTRYCODE;
 
-    @AndroidFindBy(name = "India")
+    @AndroidFindBy(name = "Algeria")
     public MobileElement COUNTRYNAME;
 
-    public static final String MOBILENUMBER = "9739739792";
+    public static final String MOBILENUMBER = "9964069502";
 
     public static final String MOBILENUMBERiOS = "9964069506";
 
-    public static final String PASSWORD = "aaa111";
+    public static final String PASSWORD = "admin123";
 
     //Next screen object needs to be defined in the current screen when waitForPageToLoad method is called
     @AndroidFindBy(id = RESOURCEID + "action_search")
