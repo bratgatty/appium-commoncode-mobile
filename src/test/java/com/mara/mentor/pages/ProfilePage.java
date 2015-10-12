@@ -34,36 +34,54 @@ public class ProfilePage extends AppiumTestBase{
 	public FollowersPage clickFollowers()
 	{
 		Reporter.log(profilePageObjects.NOOFFOLLOWERS.getText(), true);
-		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWERS.getText()) == 0)
-			Reporter.log("No Followers for the user", true);
-		else
-			profilePageObjects.NOOFFOLLOWERS.click();
-		return new FollowersPage(driver);
-	}
-	
-	//To get number of following and click on it
-		public FollowingPage clickFollowing()
+		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWERS.getText()) > 0)
 		{
-			Reporter.log(profilePageObjects.NOOFFOLLOWING.getText(), true);
-			if(Integer.parseInt(profilePageObjects.NOOFFOLLOWING.getText()) == 0)
-				Reporter.log("Following by Nobody", true);
-			else
-				profilePageObjects.NOOFFOLLOWING.click();
+			profilePageObjects.NOOFFOLLOWERS.click();
+			return new FollowersPage(driver);
+		}
+		else
+		{
+			// If there are no followers, then we need to return null because
+			// we have pre-defined return types of clickFollowers method
+			Reporter.log("No Followers for the user", true);
+			return null;
+		}
+
+	}
+
+	//To get number of following and click on it
+	public FollowingPage clickFollowing()
+	{
+		Reporter.log(profilePageObjects.NOOFFOLLOWING.getText(), true);
+		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWING.getText()) > 0)
+		{
+			profilePageObjects.NOOFFOLLOWING.click();
 			return new FollowingPage(driver);
 		}
-	
-		//To get number of activity and click on it
-				public ActivityPage clickActivity()
-				{
-					Reporter.log(profilePageObjects.NOOFACTIVITIES.getText(), true);
-					if(Integer.parseInt(profilePageObjects.NOOFACTIVITIES.getText()) == 0)
-						Reporter.log("No Activities by the User", true);
-					else
-						profilePageObjects.NOOFACTIVITIES.click();
-					return new ActivityPage(driver);
-				}
-	
-	
-	
+
+		else
+		{
+			Reporter.log("Following by Nobody", true);
+			return null;
+		}
+	}
+
+
+	//To get number of activity and click on it
+	public ActivityPage clickActivity()
+	{
+		Reporter.log(profilePageObjects.NOOFACTIVITIES.getText(), true);
+		if(Integer.parseInt(profilePageObjects.NOOFACTIVITIES.getText()) > 0)
+		{
+			profilePageObjects.NOOFACTIVITIES.click();
+			return new ActivityPage(driver);
+		}
+		else
+		{
+			Reporter.log("No Activities by the User", true);
+			return null;
+		}
+
+	}
 
 }
