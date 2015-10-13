@@ -1,17 +1,17 @@
 package com.mara.mentor.util;
 
+import com.mara.mentor.pageobjects.WelcomePageObjects;
+import com.mara.mentor.pages.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
@@ -21,15 +21,19 @@ import java.util.concurrent.TimeUnit;
  * Created by maratest on 9/8/15.
  */
 public class Utils {
-    private static AppiumDriver<MobileElement> driver;
+    private static AppiumDriver driver;
     public static Properties prop = new Properties();
     static InputStream input = null;
+    private static WelcomePage welcomePage;
+    private static HomePage homePage;
+    private static WelcomePageObjects welcomePageObjects;
 
     public static AppiumDriver<MobileElement> getDriver() throws IOException{
         input = new FileInputStream("property/platform.properties");
         prop.load(input);
         if(prop.getProperty("platform").equals("android")){
             androidSetup();
+
 
         }else if (prop.getProperty("platform").equals("ios")){
             iosSetup();
@@ -68,4 +72,51 @@ public class Utils {
         capabilities.setCapability("app", app.getAbsolutePath());
         driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }
+
+
+
+
+    public static HomePage checkIfLoggedIn(AppiumDriver<MobileElement> driver) throws IOException, InterruptedException
+    {
+        input = new FileInputStream("property/platform.properties");
+        prop.load(input);
+        if(prop.getProperty("platform").equals("android"))
+        {
+            // For android platform, for every tests, app starts from login screen.
+            // So, it makes sense to call the login method directly
+           doDirectLogin();
+        }else if (prop.getProperty("platform").equals("ios"))
+        {
+            // In case of iOS, we need to check if the user is already logged in
+            // If already logged  in, return homepage driver
+            if(checkIfUserhasAlreadyLoggedIn())
+            {
+                return new HomePage(driver);
+            }
+            else
+            {
+                // Else, go ahead and login with existing credentials
+                doDirectLogin();
+            }
+
+        }
+        return new HomePage(driver);
+
+    }
+
+    private static boolean checkIfUserhasAlreadyLoggedIn()
+    {
+        // If LOG IN button is not present isEmpty method wil return true
+        // This means user has already logged in
+        return driver.findElements(By.name("LOG IN")).isEmpty();
+
+    }
+
+    public static void doDirectLogin() throws InterruptedException,IOException
+    {
+        welcomePage = new WelcomePage(driver);
+        homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+        Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+    }
 }
+

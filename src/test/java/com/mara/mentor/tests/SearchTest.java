@@ -22,29 +22,26 @@ public class SearchTest
 {
 	public AppiumDriver<MobileElement> driver;
 
-	WelcomePage welcomePage;
 	HomePage homePage;
-	ProfilePage profilePage;
-	FollowersPage followersPage;
-	FollowingPage followingPage;
-	ActivityPage activityPage;
+
 	
 	@BeforeMethod(alwaysRun=true)
-	//@BeforeClass(alwaysRun = true)
-	public void startDriver() throws IOException {
+	public void startDriver() throws IOException,InterruptedException{
         driver = Utils.getDriver();
+		// before every test is executed, call this method to login on android phones and
+		// avoid logging in on ios if already loggedin
+		homePage = Utils.checkIfLoggedIn(driver);
 	}
 	
 	@Test
 	public void ValidSearch() throws IOException, InterruptedException{
-		welcomePage = new WelcomePage(driver);
-		HomePage homePage = welcomePage.waitforWelcomePage(driver)
-                .clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver).search(driver);
+		homePage.search(driver);
 		}
 		
-		@AfterMethod(alwaysRun=true)    
-		//@AfterClass(alwaysRun = true)
-	    public void afterClass() {
-	        driver.quit();
+	@AfterMethod(alwaysRun=true)
+	//@AfterClass(alwaysRun = true)
+	public void afterClass()
+	{
+		driver.quit();
 	}
 }

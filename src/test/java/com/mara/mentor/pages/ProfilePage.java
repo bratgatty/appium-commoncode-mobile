@@ -36,7 +36,8 @@ public class ProfilePage extends AppiumTestBase{
 		Reporter.log(profilePageObjects.NOOFFOLLOWERS.getText(), true);
 		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWERS.getText()) > 0)
 		{
-			profilePageObjects.NOOFFOLLOWERS.click();
+			Reporter.log("User has "+profilePageObjects.NOOFFOLLOWERS.getText()+" follower(s)",true);
+			profilePageObjects.FOLLOWERSBTN.click();
 			return new FollowersPage(driver);
 		}
 		else
@@ -55,7 +56,8 @@ public class ProfilePage extends AppiumTestBase{
 		Reporter.log(profilePageObjects.NOOFFOLLOWING.getText(), true);
 		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWING.getText()) > 0)
 		{
-			profilePageObjects.NOOFFOLLOWING.click();
+			Reporter.log("User is following "+profilePageObjects.NOOFFOLLOWING.getText()+" user(s)",true);
+			profilePageObjects.FOLLOWINGSBTN.click();
 			return new FollowingPage(driver);
 		}
 
@@ -73,7 +75,8 @@ public class ProfilePage extends AppiumTestBase{
 		Reporter.log(profilePageObjects.NOOFACTIVITIES.getText(), true);
 		if(Integer.parseInt(profilePageObjects.NOOFACTIVITIES.getText()) > 0)
 		{
-			profilePageObjects.NOOFACTIVITIES.click();
+			Reporter.log("User has "+profilePageObjects.NOOFACTIVITIES.getText()+" activity(s)",true);
+			profilePageObjects.ACTIVITYBTN.click();
 			return new ActivityPage(driver);
 		}
 		else
