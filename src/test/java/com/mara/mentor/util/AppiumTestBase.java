@@ -35,9 +35,11 @@ public abstract class AppiumTestBase {
         return el;
     }
 
+
     public static int randomFunc(int n)
 	{
 		Random random=new Random();
 		return random.nextInt(n);
 	}
+
 }
