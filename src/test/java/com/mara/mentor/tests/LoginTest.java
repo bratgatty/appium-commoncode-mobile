@@ -21,24 +21,21 @@ public class LoginTest {
 
     //Create a welcomepage object
     WelcomePage welcomePage;
+    HomePage homePage;
 
     @BeforeClass(alwaysRun = true)
     public void startDriver() throws IOException {
         driver = Utils.getDriver();
+
+
     }
 
     @Test(priority = 1)
     public void validLogin() throws InterruptedException, IOException {
-        welcomePage = new WelcomePage(driver);
-        // this test will validate the following conditions
-        // wait for WelcomePage to appear
-        // click on the Login button
-        // Wait for the Login screen to appear
-        // Enter valid credentials and tap Sign In button
-        // Wait and assert for the Home screen to be displayed
-        HomePage homePage = welcomePage.waitforWelcomePage(driver)
-                .clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
-        AssertJUnit.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+        // Check if user is logged in .
+        // if not run the login method and check the test case
+        homePage = Utils.checkIfLoggedIn(driver);
+
     }
     
     @AfterClass(alwaysRun = true)

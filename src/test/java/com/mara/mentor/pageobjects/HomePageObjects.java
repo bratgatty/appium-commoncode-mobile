@@ -23,7 +23,6 @@ public class HomePageObjects {
     
     
     @AndroidFindBy(id = "com.mara.maramentor:id/search_view")
-    //@iOSFindBy()
     public MobileElement searchTextField;
     
     @AndroidFindBy(id = "com.mara.maramentor:id/search")

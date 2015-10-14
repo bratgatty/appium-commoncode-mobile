@@ -22,7 +22,7 @@ public class FollowingPage extends AppiumTestBase{
 	
 	public boolean verifyFollowingDisplayed()
 	{
-		return followingPageObjects.FOLLOWBTN.isDisplayed();
+		return followingPageObjects.FollowingScreenTitle.isDisplayed();
 	}
 	
 	
