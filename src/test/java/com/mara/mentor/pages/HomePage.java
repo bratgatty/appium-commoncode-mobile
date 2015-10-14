@@ -48,7 +48,7 @@ public class HomePage extends AppiumTestBase {
   		public ComposePage composeButtonTap(AppiumDriver<MobileElement> driver)
   		{
   			homePageObjects.composeButton.click();
-  			return new ComposePage();
+  			return new ComposePage(driver);
   		}
   
 

@@ -11,6 +11,8 @@ import com.mara.mentor.pageobjects.ComposePageObjects;
 import com.mara.mentor.pageobjects.HomePageObjects;
 import com.mara.mentor.util.AppiumTestBase;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class ComposePage extends AppiumTestBase 
@@ -18,7 +20,7 @@ public class ComposePage extends AppiumTestBase
         ComposePageObjects composePageObjects=new ComposePageObjects();
         HomePageObjects homePageObjects = new   HomePageObjects();
 	
-	public ComposePage()
+	public ComposePage(AppiumDriver<MobileElement> driver)
 	{
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver,5, TimeUnit.SECONDS),composePageObjects);
@@ -67,7 +69,7 @@ public class ComposePage extends AppiumTestBase
 	}
 	   
 		//Creating A  Post and link With image attachments
-	   public HomePage composeImagePost()
+	   public HomePage composeImagePost() throws InterruptedException
 		{
 		      
 			   composePageObjects.postTitleField.sendKeys(composePageObjects.title);
@@ -100,6 +102,7 @@ public class ComposePage extends AppiumTestBase
 			//  	   composePageObjects.OkButton.click();
 			   
 			   composePageObjects.submitButton.click();
+			   Thread.sleep(5000);
 			   
 			   return new HomePage(driver);
   		      }

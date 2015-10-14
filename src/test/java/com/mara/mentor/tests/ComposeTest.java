@@ -40,14 +40,14 @@ public class ComposeTest
 	//@BeforeClass(alwaysRun = true)
 	public void startDriver() throws IOException, InterruptedException {
         driver = Utils.getDriver();
+    	// before every test is executed, call this method to login on android phones and
+		// avoid logging in on ios if already loggedin
+		homePage = Utils.checkIfLoggedIn(driver);
+
 	}
 	
 	@Test
 	  public void composeTest() throws IOException, InterruptedException{
-		welcomePage = new WelcomePage(driver);
-		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
-		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
-	    
 		composePage=homePage.composeButtonTap(driver);
 		Assert.assertTrue(composePage.verifyComposePageDisplayed());
 		 homePage=composePage.composePost();
@@ -58,9 +58,6 @@ public class ComposeTest
 
   @Test
     public void composeImageTest() throws IOException, InterruptedException{
-	welcomePage = new WelcomePage(driver);
-	homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
-	Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
 	composePage=homePage.composeButtonTap(driver);
 	Assert.assertTrue(composePage.verifyComposePageDisplayed());
 	 homePage=composePage.composeImagePost();
@@ -71,9 +68,6 @@ public class ComposeTest
 
    @Test
    public void composeVideoTest() throws IOException, InterruptedException{
-	welcomePage = new WelcomePage(driver);
-	homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
-	Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
 	composePage=homePage.composeButtonTap(driver);
 	Assert.assertTrue(composePage.verifyComposePageDisplayed());
 	 homePage=composePage.composeVideoPost();
