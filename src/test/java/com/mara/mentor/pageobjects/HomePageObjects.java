@@ -27,10 +27,24 @@ public class HomePageObjects {
     public MobileElement searchTextField;
     
     @AndroidFindBy(id = "com.mara.maramentor:id/search")
+    @iOSFindBy(name="name: icn search")
      public MobileElement searchIcon;
     
     
     public String searchtext="sharath";
+    
+    @AndroidFindBy(id = "com.mara.maramentor:id/action_compose")
+    @iOSFindBy(name="icn compose")
+    public MobileElement composeButton;
+    
+    
+    @AndroidFindBy(id = "com.mara.maramentor:id/heading_textview")
+    @iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIAStaticText[6]")
+    public MobileElement postHeading;
+    
+    
+    
+   
 
 
 }

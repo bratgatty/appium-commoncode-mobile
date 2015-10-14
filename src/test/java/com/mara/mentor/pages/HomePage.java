@@ -1,5 +1,6 @@
 package com.mara.mentor.pages;
 
+import com.mara.mentor.pageobjects.ComposePageObjects;
 import com.mara.mentor.pageobjects.HomePageObjects;
 
 import com.mara.mentor.pageobjects.SideNavigationObjects;
@@ -24,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class HomePage extends AppiumTestBase {
     HomePageObjects homePageObjects = new HomePageObjects();
     SideNavigationObjects sideNavigationObjects = new SideNavigationObjects();
+    ComposePageObjects composePageObjects = new ComposePageObjects ();
 
     public HomePage(AppiumDriver<MobileElement> driver)
     {
@@ -38,11 +40,16 @@ public class HomePage extends AppiumTestBase {
     //Method to tap on side navigation
     public SideNavigationPage sideNavigationTap(AppiumDriver<MobileElement> driver)
     {
-
     	homePageObjects.SIDENAVIGATIONBTN.click();
     	return new SideNavigationPage(driver);
     }
     
+  //Method to tap on compose icon
+  		public ComposePage composeButtonTap(AppiumDriver<MobileElement> driver)
+  		{
+  			homePageObjects.composeButton.click();
+  			return new ComposePage();
+  		}
   
 
     //Rahul - Need to implement Search API assertion to compare with results shown on screen
@@ -51,7 +58,9 @@ public class HomePage extends AppiumTestBase {
           homePageObjects.SEARCHBTN.click();
           homePageObjects.searchTextField.sendKeys(homePageObjects.searchtext);
           homePageObjects.searchIcon.click();
-
+          
+  
+  
           List<MobileElement> searchResults= driver.findElements(By.id("com.mara.maramentor:id/search_name_textview"));
           Random random = new Random();
           
@@ -70,6 +79,25 @@ public class HomePage extends AppiumTestBase {
 		return this;
 
     }   
+    
+    // To Verify Whether Post is Created Successfully
+    public boolean isPosted()
+	   {
+		    if(homePageObjects.postHeading.getText().equalsIgnoreCase(composePageObjects.title))
+		{
+			   Reporter.log("Post successfully created",true);
+			   System.out.println(homePageObjects.postHeading.getText() + composePageObjects.title );
+			    return true;
+		}
+		    else
+		{
+			   Reporter.log("Post creation Failed",true);
+			   Reporter.log("Actual Value : "+homePageObjects.postHeading.getText(),true);
+			   Reporter.log("Expected Value : "+composePageObjects.title,true);
+			   return false;
+		 }
+	   }
+
   
 
 
