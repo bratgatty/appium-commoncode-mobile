@@ -12,8 +12,7 @@ public class HomePageObjects {
 
     //public static final String RESOURCEID = "com.mara.maramentor:id/";
 
-
-    @AndroidFindBy(id = "com.mara.maramentor:id/action_search")
+	@AndroidFindBy(id = "com.mara.maramentor:id/action_search")
     @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")
     public MobileElement SEARCHBTN;
     
