@@ -13,6 +13,10 @@ public class WelcomePageObjects {
     @iOSFindBy(name = "LOG IN")
     public MobileElement LOGINBTN;
 
+	 @AndroidFindBy(id = RESOURCEID + "siginup_btn")
+	 @iOSFindBy(name = "SIGN UP")
+	  public MobileElement SIGNUPBTN;
+	 
     // Next screen object needs to be defined in the current screen when waitForPageToLoad method is called
     @AndroidFindBy(id = RESOURCEID + "mobile_no_editext")
     @iOSFindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[2]")
