@@ -16,7 +16,6 @@ import com.mara.mentor.pages.FollowingPage;
 import com.mara.mentor.pages.HomePage;
 import com.mara.mentor.pages.ProfilePage;
 import com.mara.mentor.pages.WelcomePage;
-import com.mara.mentor.util.AppiumTestBase;
 import com.mara.mentor.util.Utils;
 
 import io.appium.java_client.AppiumDriver;

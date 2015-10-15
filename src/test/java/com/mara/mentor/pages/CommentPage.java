@@ -7,7 +7,6 @@ import org.testng.Assert;
 
 import com.mara.mentor.pageobjects.CommentPageObjects;
 import com.mara.mentor.pageobjects.HomePageObjects;
-import com.mara.mentor.util.AppFeed;
 import com.mara.mentor.util.AppiumTestBase;
 
 import io.appium.java_client.AppiumDriver;
@@ -32,12 +31,12 @@ public class CommentPage extends AppiumTestBase{
 	
 	public CommentPage addComment(AppiumDriver<MobileElement> driver) throws InterruptedException
 	{
-		commentPageObjects.addTextField.sendKeys(AppFeed.commentText);
+		commentPageObjects.addTextField.sendKeys(CommentPageObjects.commentText);
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		commentPageObjects.postButton.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//AppiumTestBase.waitForElement(driver, commentPageObjects.verifyAddedComment);
-		Assert.assertEquals(AppFeed.commentText, commentPageObjects.verifyAddedComment.getText());
+		Assert.assertEquals(CommentPageObjects.commentText, commentPageObjects.verifyAddedComment.getText());
 		return new CommentPage(driver);
 	}
 	

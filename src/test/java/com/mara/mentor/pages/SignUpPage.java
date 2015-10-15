@@ -5,14 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Reporter;
-
 import com.mara.mentor.pageobjects.HomePageObjects;
 import com.mara.mentor.pageobjects.SignUpPageObjects;
 import com.mara.mentor.util.AppiumTestBase;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

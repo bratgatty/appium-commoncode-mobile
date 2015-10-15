@@ -4,6 +4,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class CommentPageObjects {
+	
+	
+//	Comment text
+	public static String commentText = "Adding new comment";
 
 	//MobileElement for Post button
 	@AndroidFindBy(id="com.mara.maramentor:id/send_comment")

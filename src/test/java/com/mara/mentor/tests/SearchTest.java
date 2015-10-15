@@ -2,17 +2,11 @@ package com.mara.mentor.tests;
 
 import java.io.IOException;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.mara.mentor.pages.ActivityPage;
-import com.mara.mentor.pages.FollowersPage;
-import com.mara.mentor.pages.FollowingPage;
 import com.mara.mentor.pages.HomePage;
-import com.mara.mentor.pages.ProfilePage;
-import com.mara.mentor.pages.WelcomePage;
 import com.mara.mentor.util.Utils;
 
 import io.appium.java_client.AppiumDriver;

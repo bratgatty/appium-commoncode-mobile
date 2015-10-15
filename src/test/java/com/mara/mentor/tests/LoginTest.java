@@ -4,7 +4,6 @@ package com.mara.mentor.tests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import com.mara.mentor.pages.HomePage;
 import com.mara.mentor.pages.WelcomePage;
 import com.mara.mentor.util.Utils;
