@@ -67,6 +67,18 @@ public class ProfilePageTest {
 		activityPage = profilePage.clickActivity();
 		Assert.assertTrue(activityPage.verifyActivityDisplayed());
 	}
+	
+	@Test
+	public void test_GetUserDetails() throws IOException, InterruptedException
+	{
+		welcomePage = new WelcomePage(driver);
+		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+		profilePage = homePage.sideNavigationTap(driver).tapProfile(driver);
+		Assert.assertTrue(profilePage.verifyProfilePageDisplayed());
+		profilePage = profilePage.getUserNameDetails();
+	}
+	
     
 	@AfterMethod(alwaysRun=true)    
 	//@AfterClass(alwaysRun = true)
