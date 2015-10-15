@@ -22,7 +22,7 @@ public class ActivityPage extends AppiumTestBase {
 	
 	public boolean verifyActivityDisplayed()
 	{
-		return activityPageObjects.ACTIVITIESLIST.isDisplayed();
+		return activityPageObjects.ACTIVITYSCREENTITLE.isDisplayed();
 	}
 	
 

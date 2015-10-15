@@ -24,26 +24,18 @@ public class LogoutTest {
     HomePage homePage;
 
     @BeforeClass(alwaysRun = true)
-    public void startDriver() throws IOException {
+    public void startDriver() throws IOException,InterruptedException {
         driver = Utils.getDriver();
+        homePage = Utils.checkIfLoggedIn(driver);
     }
 
     @Test(priority = 1)
     public void logout() throws InterruptedException, IOException {
-        welcomePage = new WelcomePage(driver);
-        // this test will validate the following conditions
-        // wait for WelcomePage to appear
-        // click on the Login button
-        // Wait for the Login screen to appear
-        // Enter valid credentials and tap Sign In button
-        // Wait and assert for the Home screen to be displayed
-        homePage = welcomePage.waitforWelcomePage(driver)
-                .clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
-        Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+
         //To logout
-        //Wait for welcomepage to appear
-        welcomePage = homePage.sideNavigationTap(driver).waitForSideNavaigationPage(driver).logout(driver).waitforWelcomePage(driver);
-        //Assert.assertTrue(welcomePage.verifyLoginBtnDisplayed(driver));
+        welcomePage = homePage.sideNavigationTap(driver)
+                .waitForSideNavaigationPage(driver).logout(driver).waitforWelcomePage(driver);
+        Assert.assertTrue(welcomePage.verifyLoginBtnDisplayed(driver));
     }
 
     @AfterClass(alwaysRun = true)

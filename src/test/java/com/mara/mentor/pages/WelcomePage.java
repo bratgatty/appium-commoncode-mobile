@@ -29,6 +29,12 @@ public class WelcomePage extends AppiumTestBase {
         waitForPageToLoad(driver,welcomePageObjects.LOGINBTN);
         return new WelcomePage(driver);
     }
+    
+    // click on the Signup button
+    public WelcomePage clickonSignup(AppiumDriver<MobileElement> driver){
+        welcomePageObjects.SIGNUPBTN.click();
+        return new WelcomePage(driver);
+    }
 
     // click on the Login button
     public WelcomePage clickonLogin(AppiumDriver<MobileElement> driver){
@@ -36,6 +42,14 @@ public class WelcomePage extends AppiumTestBase {
         return new WelcomePage(driver);
     }
 
+    // wait for the Signup screen to appear
+    public SignUpPage waitforSignUpPage(AppiumDriver<MobileElement> driver) throws InterruptedException {
+        Thread.sleep(5000);
+        waitForPageToLoad(driver,welcomePageObjects.MOBILENUMBERFIELD);
+        return new SignUpPage(driver);
+
+    }
+    
     // wait for the Login screen to appear
     public LoginPage waitforLoginPage(AppiumDriver<MobileElement> driver) throws InterruptedException {
         Thread.sleep(5000);

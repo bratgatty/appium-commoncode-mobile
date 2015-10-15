@@ -3,6 +3,9 @@ package com.mara.mentor.util;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -31,5 +34,12 @@ public abstract class AppiumTestBase {
         WebElement el = arg;
         return el;
     }
+
+
+    public static int randomFunc(int n)
+	{
+		Random random=new Random();
+		return random.nextInt(n);
+	}
 
 }

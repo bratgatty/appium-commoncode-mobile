@@ -34,36 +34,76 @@ public class ProfilePage extends AppiumTestBase{
 	public FollowersPage clickFollowers()
 	{
 		Reporter.log(profilePageObjects.NOOFFOLLOWERS.getText(), true);
-		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWERS.getText()) == 0)
-			Reporter.log("No Followers for the user", true);
-		else
-			profilePageObjects.NOOFFOLLOWERS.click();
-		return new FollowersPage(driver);
-	}
-	
-	//To get number of following and click on it
-		public FollowingPage clickFollowing()
+		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWERS.getText()) > 0)
 		{
-			Reporter.log(profilePageObjects.NOOFFOLLOWING.getText(), true);
-			if(Integer.parseInt(profilePageObjects.NOOFFOLLOWING.getText()) == 0)
-				Reporter.log("Following by Nobody", true);
-			else
-				profilePageObjects.NOOFFOLLOWING.click();
+			Reporter.log("User has "+profilePageObjects.NOOFFOLLOWERS.getText()+" follower(s)",true);
+			profilePageObjects.FOLLOWERSBTN.click();
+			return new FollowersPage(driver);
+		}
+		else
+		{
+			// If there are no followers, then we need to return null because
+			// we have pre-defined return types of clickFollowers method
+			Reporter.log("No Followers for the user", true);
+			return null;
+		}
+
+	}
+
+	//To get number of following and click on it
+	public FollowingPage clickFollowing()
+	{
+		Reporter.log(profilePageObjects.NOOFFOLLOWING.getText(), true);
+		if(Integer.parseInt(profilePageObjects.NOOFFOLLOWING.getText()) > 0)
+		{
+			Reporter.log("User is following "+profilePageObjects.NOOFFOLLOWING.getText()+" user(s)",true);
+			profilePageObjects.FOLLOWINGSBTN.click();
 			return new FollowingPage(driver);
 		}
+
+		else
+		{
+			Reporter.log("Following by Nobody", true);
+			return null;
+		}
+	}
+
+
+	//To get number of activity and click on it
+	public ActivityPage clickActivity()
+	{
+		Reporter.log(profilePageObjects.NOOFACTIVITIES.getText(), true);
+		if(Integer.parseInt(profilePageObjects.NOOFACTIVITIES.getText()) > 0)
+		{
+			Reporter.log("User has "+profilePageObjects.NOOFACTIVITIES.getText()+" activity(s)",true);
+			profilePageObjects.ACTIVITYBTN.click();
+			return new ActivityPage(driver);
+		}
+		else
+		{
+			Reporter.log("No Activities by the User", true);
+			return null;
+		}
+
+	}
 	
-		//To get number of activity and click on it
-				public ActivityPage clickActivity()
-				{
-					Reporter.log(profilePageObjects.NOOFACTIVITIES.getText(), true);
-					if(Integer.parseInt(profilePageObjects.NOOFACTIVITIES.getText()) == 0)
-						Reporter.log("No Activities by the User", true);
-					else
-						profilePageObjects.NOOFACTIVITIES.click();
-					return new ActivityPage(driver);
-				}
+	//To get Username, Designation, Industry and Country
 	
-	
-	
+	public ProfilePage getUserNameDetails()
+	{
+		//To get User name 
+		Reporter.log(profilePageObjects.userName.getText(), true);
+		//To get Job Title
+		if(profilePageObjects.jobTitle.isDisplayed())
+			Reporter.log(profilePageObjects.jobTitle.getText(), true);
+		else
+			Reporter.log("Job title is not yet set by user", true);
+		//To get Industry
+		Reporter.log(profilePageObjects.getIndustry.getText(), true);
+		//To get Country name
+		Reporter.log(profilePageObjects.getCountry.getText(), true);
+		return new ProfilePage(driver);
+	}
+
 
 }

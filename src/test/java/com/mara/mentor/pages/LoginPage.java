@@ -45,11 +45,9 @@ public class LoginPage extends AppiumTestBase {
         input = new FileInputStream("property/platform.properties");
         prop.load(input);
         if(prop.getProperty("platform").equals("android")){
-            //loginPageObjects.COUNTRYCODE.click();
-            //driver.scrollTo("+51").click();
-            //driver.scrollToExact("India").click();
-            //waitForPageToLoad(driver,loginPageObjects.COUNTRYNAME);
-            //loginPageObjects.COUNTRYNAME.click();
+            loginPageObjects.COUNTRYCODE.click();
+            waitForPageToLoad(driver,loginPageObjects.COUNTRYNAME);
+            loginPageObjects.COUNTRYNAME.click();
             waitForPageToLoad(driver,loginPageObjects.MOBILENUMBERFIELD);
             
         }
