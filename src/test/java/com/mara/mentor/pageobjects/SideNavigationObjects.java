@@ -18,5 +18,7 @@ public class SideNavigationObjects {
     @iOSFindBy(name = "YES")
     public MobileElement YESOKBTN;
 
-
+    @AndroidFindBy(name="Discussion Forums")
+    @iOSFindBy(name="Discussion Forums")
+    public MobileElement discussionForumButton;
 }
