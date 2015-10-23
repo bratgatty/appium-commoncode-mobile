@@ -12,7 +12,6 @@ import com.mara.mentor.pages.FollowersPage;
 import com.mara.mentor.pages.FollowingPage;
 import com.mara.mentor.pages.HomePage;
 import com.mara.mentor.pages.ProfilePage;
-import com.mara.mentor.pages.WelcomePage;
 import com.mara.mentor.util.Utils;
 
 import io.appium.java_client.AppiumDriver;
@@ -72,6 +71,16 @@ public class ProfilePageTest {
 		}
 
 	}
+	
+	@Test
+	public void test_GetUserDetails() throws IOException, InterruptedException
+	{
+		profilePage = homePage.sideNavigationTap(driver).tapProfile(driver);
+		Assert.assertTrue(profilePage.verifyProfilePageDisplayed());
+		profilePage = profilePage.getUserNameDetails();
+		//Need to assert userdata with response got from API
+	}
+	
     
 	@AfterMethod(alwaysRun=true)
     public void afterClass()

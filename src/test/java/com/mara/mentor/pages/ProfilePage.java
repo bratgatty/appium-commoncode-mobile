@@ -86,5 +86,24 @@ public class ProfilePage extends AppiumTestBase{
 		}
 
 	}
+	
+	//To get Username, Designation, Industry and Country
+	
+	public ProfilePage getUserNameDetails()
+	{
+		//To get User name 
+		Reporter.log(profilePageObjects.userName.getText(), true);
+		//To get Job Title
+		if(profilePageObjects.jobTitle.isDisplayed())
+			Reporter.log(profilePageObjects.jobTitle.getText(), true);
+		else
+			Reporter.log("Job title is not yet set by user", true);
+		//To get Industry
+		Reporter.log(profilePageObjects.getIndustry.getText(), true);
+		//To get Country name
+		Reporter.log(profilePageObjects.getCountry.getText(), true);
+		return new ProfilePage(driver);
+	}
+
 
 }

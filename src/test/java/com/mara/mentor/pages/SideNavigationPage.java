@@ -3,16 +3,12 @@ package com.mara.mentor.pages;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.mara.mentor.pageobjects.SideNavigationObjects;
 import com.mara.mentor.util.AppiumTestBase;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 
 
 

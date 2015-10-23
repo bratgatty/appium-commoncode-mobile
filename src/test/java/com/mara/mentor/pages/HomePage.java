@@ -1,20 +1,17 @@
 package com.mara.mentor.pages;
 
+import com.mara.mentor.pageobjects.CommentPageObjects;
 import com.mara.mentor.pageobjects.ComposePageObjects;
 import com.mara.mentor.pageobjects.HomePageObjects;
-
 import com.mara.mentor.pageobjects.SideNavigationObjects;
 import com.mara.mentor.util.AppiumTestBase;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -25,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class HomePage extends AppiumTestBase {
     HomePageObjects homePageObjects = new HomePageObjects();
     SideNavigationObjects sideNavigationObjects = new SideNavigationObjects();
+    CommentPageObjects commentPageObjects = new CommentPageObjects();
     ComposePageObjects composePageObjects = new ComposePageObjects ();
 
     public HomePage(AppiumDriver<MobileElement> driver)
@@ -42,6 +40,28 @@ public class HomePage extends AppiumTestBase {
     {
     	homePageObjects.SIDENAVIGATIONBTN.click();
     	return new SideNavigationPage(driver);
+    }
+    
+    //Adding comment from news and updates screen on 1st post
+    public CommentPage clickFirstCommentIcon(AppiumDriver<MobileElement> driver)
+    {
+    	homePageObjects.commentIcon.click();
+    	waitForPageToLoad(driver,commentPageObjects.postButton);
+    	return new CommentPage(driver);
+    }
+    
+    //Clicking on first post
+    public PostDetailPage clickPost(AppiumDriver<MobileElement> driver)
+    {
+    	homePageObjects.postHeading.click();
+    	return new PostDetailPage(driver);
+    }
+    
+    //To get comment count
+    public HomePage getCommentCount()
+    {
+    	homePageObjects.commentCount.getText();
+    	return new HomePage(driver);
     }
     
   //Method to tap on compose icon
@@ -97,8 +117,4 @@ public class HomePage extends AppiumTestBase {
 			   return false;
 		 }
 	   }
-
-  
-
-
 }
