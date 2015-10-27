@@ -35,6 +35,12 @@ public class HomePage extends AppiumTestBase {
         return homePageObjects.SEARCHBTN.isDisplayed();
     }
     
+    public HomePage waitForComposeButton(AppiumDriver<MobileElement> driver)
+	{
+		waitForPageToLoad(driver, homePageObjects.composeButton);
+		return this;
+	}
+    
     //Method to tap on side navigation
     public SideNavigationPage sideNavigationTap(AppiumDriver<MobileElement> driver)
     {

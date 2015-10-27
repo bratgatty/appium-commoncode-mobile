@@ -2,6 +2,7 @@ package com.mara.mentor.tests;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,8 +17,11 @@ import com.mara.mentor.pages.FollowersPage;
 import com.mara.mentor.pages.FollowingPage;
 import com.mara.mentor.pages.HomePage;
 import com.mara.mentor.pages.ProfilePage;
+import com.mara.mentor.pages.SideNavigationPage;
 import com.mara.mentor.pages.WelcomePage;
+import com.mara.mentor.util.AppiumTestBase;
 import com.mara.mentor.util.Utils;
+import com.thoughtworks.selenium.webdriven.commands.WaitForPageToLoad;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -36,6 +40,8 @@ public class ComposeTest
 	HomePageObjects hmp;
 	ComposePageObjects com;
 	DiscussionForumPage discussionForumPage;
+	HomePageObjects homePageObjects;
+	
 	
 	@BeforeMethod(alwaysRun=true)
 	//@BeforeClass(alwaysRun = true)
@@ -118,27 +124,23 @@ public class ComposeTest
 	public void composeVideoQuestionTest() throws InterruptedException
 	{
 		   discussionForumPage = homePage.sideNavigationTap(driver)
-         .waitForSideNavaigationPage(driver).
-         
-         discussionForumTap(driver);
-         Assert.assertEquals(discussionForumPage.verifyDiscussionForumIsDisplayed(),"Discussion Forums");
-          composePage=discussionForumPage.composeButtonTap(driver);
-         Assert.assertTrue(composePage.verifyComposePageDisplayed());
-        discussionForumPage = composePage.composeVideoUrlQuestion();
-        Assert.assertTrue(discussionForumPage.isQuestionPosted());
+           .waitForSideNavaigationPage(driver).discussionForumTap(driver);
+           Assert.assertEquals(discussionForumPage.verifyDiscussionForumIsDisplayed(),"Discussion Forums");
+           composePage=discussionForumPage.composeButtonTap(driver);
+           Assert.assertTrue(composePage.verifyComposePageDisplayed());
+           discussionForumPage = composePage.composeVideoUrlQuestion();
+          Assert.assertTrue(discussionForumPage.isQuestionPosted());
       
 	}
 	
-	
-	
-	
+
    
    @AfterMethod(alwaysRun=true)    
 	//@AfterClass(alwaysRun = true)
    public void afterClass() throws InterruptedException 
    {
-	   Thread.sleep(3000);
-	   homePage.sideNavigationTap(driver).waitForSideNavaigationPage(driver).logout(driver).waitforWelcomePage(driver);
+	   Thread.sleep(2000);
+	   homePage.sideNavigationTap(driver).logout(driver);
 	   Thread.sleep(2000);
        driver.quit();
    }

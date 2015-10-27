@@ -44,22 +44,22 @@ public class DiscussionForumPage  extends AppiumTestBase
     public boolean isQuestionPosted()
 	   {
     	
-    	   Reporter.log("Actual Value : "+discussionForumPageObject.questionHeading.getText(),true);
+    	 //String actualValue=   discussionForumPageObject.questionHeading.getText();
+    	  //actualValue.replaceAll("  ", " ");
+    	   Reporter.log("Actual Value : "+discussionForumPageObject.questionHeading.getText().replaceAll("  ", " "),true);
     	
-		    if(discussionForumPageObject.questionHeading.getText().contains(composePageObjects.hastags))
+		    if(discussionForumPageObject.questionHeading.getText().replaceAll("  ", " ").contains(composePageObjects.hastags))
 		{
 			   Reporter.log("Question successfully created",true);
 			   Reporter.log("Actual Value : "+discussionForumPageObject.questionHeading.getText(),true);
-			   Reporter.log("Expected Value : "+composePageObjects.questionTitle,true);
-			    
+			   Reporter.log("Expected Value : "+composePageObjects.hastags,true);
 			   return true;
 		}
 		    else
 		{
 			   Reporter.log("Question creation Failed",true);
 			   Reporter.log("Actual Value : "+discussionForumPageObject.questionHeading.getText(),true);
-			   Reporter.log("Expected Value : "+composePageObjects.questionTitle,true);
-			   
+			   Reporter.log("Expected Value : "+composePageObjects.hastags,true);
 			   return false;
 		 }
 	   }
