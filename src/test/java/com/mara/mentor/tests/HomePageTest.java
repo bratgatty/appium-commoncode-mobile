@@ -34,6 +34,7 @@ public AppiumDriver<MobileElement> driver;
         driver = Utils.getDriver();
 	}
 	
+	//Test to add comment on first post of a page
 	@Test
 	public void test_AddComment() throws IOException, InterruptedException{
 		welcomePage = new WelcomePage(driver);

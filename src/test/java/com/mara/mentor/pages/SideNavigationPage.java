@@ -37,6 +37,13 @@ public class SideNavigationPage extends AppiumTestBase{
 		return new ProfilePage(driver);
 	}
 	
+	//To click on Mentor One to One
+	public MentorConnectPage tapMentorOnetoOne(AppiumDriver<MobileElement> driver)
+	{
+		sideNavigationObjects.MENTORCONNECTBTN.click();
+		return new MentorConnectPage(driver);
+	}
+	
 	
 	  //Method to logout
     public WelcomePage logout(AppiumDriver<MobileElement> driver){
