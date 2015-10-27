@@ -50,6 +50,11 @@ public class SideNavigationPage extends AppiumTestBase{
     	sideNavigationObjects.LOGOUTBTN.click();
 		sideNavigationObjects.YESOKBTN.click();
     	return new WelcomePage(driver);
+    }
+    	
+    	 public DiscussionForumPage discussionForumTap(AppiumDriver<MobileElement> driver){
+    	    	sideNavigationObjects.discussionForumButton.click();
+    	    	return new DiscussionForumPage(driver);
     	
     }
 }

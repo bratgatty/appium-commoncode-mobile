@@ -18,7 +18,7 @@ public class ComposePageObjects
 	   @iOSFindBy(xpath="//UIATextView[@value='Enter the content here']")
        public MobileElement  postContentField;
 	   
-	   public String content="Simple Automation test	";
+	   public String content="Simple Automation test";
 	   
 	   @AndroidFindBy(id = "com.mara.maramentor:id/compose_camera_button")
 	   @iOSFindBy(name="icn camera")
@@ -32,7 +32,7 @@ public class ComposePageObjects
 	   @iOSFindBy(name="icn link")
        public MobileElement  linkAttachmentButton;
 	   
-	   public String url="https://www.mara.mentor.com";
+	   public String url="https://www.mentor.mara.com";
 	   
 	   public String videoUrl="https://www.youtube.com/watch?v=yZANpa78Tzg";
 	   
@@ -72,9 +72,14 @@ public class ComposePageObjects
 	   @iOSFindBy(name="Take a Photo")
        public MobileElement  cameraButton;
 	   
-	   @AndroidFindBy(id = "com.mara.maramentor:id/imgQueueMultiSelected")  
+	   @AndroidFindBy(id = "com.mara.maramentor:id/imgQueueMultiSelected")
 	   @iOSFindBy(xpath="//UIACollectionCell[1]")
 	   public List<MobileElement> galleryImages;
+	   
+	   @AndroidFindBy(id = "com.mara.maramentor:id/imgQueue")
+	   @iOSFindBy(xpath="//UIACollectionCell[@value='0']")                              //UIACollectionCell[@value='0']
+	   public List<MobileElement> galleryQImages;
+	   
 	   
 	   @AndroidFindBy(id = "com.mara.maramentor:id/btnGalleryOk")   
 	   @iOSFindBy(name="icn plus")
@@ -90,6 +95,17 @@ public class ComposePageObjects
 	   public MobileElement selectCapturedImageButton;
 	 	   
 	   
+	   @AndroidFindBy(name= "What is your question?")
+	   @iOSFindBy(xpath="//UIATextField[@value='What is your question?']")
+	   public MobileElement questionTitleField;
+	   
+	   public String questionTitle="Automation Test for Question";
+	   
+	   @AndroidFindBy(id = "com.mara.maramentor:id/compose_content_editext")
+	   @iOSFindBy(xpath="//UIATextView[@value='Include hash tags (#)']")
+	   public MobileElement questionHastagContentField ;
+	   
+	   public String hastags="#Africa #India #Dubai #MaraMentor #MaraChat";
 	   
 	   
 	   

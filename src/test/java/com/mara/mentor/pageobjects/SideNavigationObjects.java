@@ -21,10 +21,13 @@ public class SideNavigationObjects {
     @iOSFindBy(name = "YES")
     public MobileElement YESOKBTN;
 
+
     //MobileElement for mentor connect button
     @AndroidFindBy(xpath="//android.widget.LinearLayout[@resource-id='com.mara.maramentor:id/layout_left_menu']//android.widget.LinearLayout[3]//android.widget.TextView[@resource-id='com.mara.maramentor:id/tv_title']")
     public MobileElement MENTORCONNECTBTN;
     
-    
-
+    //Mobileelement for Discussion Forums 
+    @AndroidFindBy(name="Discussion Forums")
+    @iOSFindBy(name="Discussion Forums")
+    public MobileElement discussionForumButton;
 }
