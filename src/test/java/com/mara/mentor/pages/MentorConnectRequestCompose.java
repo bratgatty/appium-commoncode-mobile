@@ -4,11 +4,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
-
-import com.mara.mentor.pageobjects.MentorConnectObjects;
 import com.mara.mentor.pageobjects.MentorConnectRequestObjects;
 import com.mara.mentor.util.AppiumTestBase;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -104,8 +101,4 @@ public class MentorConnectRequestCompose extends AppiumTestBase{
 		mentorConnectRequestObjects.finishButton.click();
 		return new MentorConnectRequestCompose(driver);
 	}
-	
-	
-	
-	
 }
