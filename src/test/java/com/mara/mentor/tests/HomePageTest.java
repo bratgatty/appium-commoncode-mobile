@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -41,6 +42,7 @@ public AppiumDriver<MobileElement> driver;
 		commentPageObjects = new CommentPageObjects();
 		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
 		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+		homePage = homePage.swipePostPage();
 		postDetailPage = homePage.clickPost(driver);
 		//Assert.assertTrue(postDetailPage.verifyPostDetailDisp(driver));
 		commentPage = postDetailPage.clickCommentIcon();
@@ -48,7 +50,47 @@ public AppiumDriver<MobileElement> driver;
 		commentPage = commentPage.addComment(driver);
 	}
 	
-	 @AfterClass(alwaysRun = true)
+	//Test to delete post of a page
+	@Test
+	public void test_deletePost() throws IOException, InterruptedException{
+		welcomePage = new WelcomePage(driver);
+		commentPageObjects = new CommentPageObjects();
+		homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+		Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+		homePage = homePage.deletePost();
+	}
+	
+	//Test to abuse report post of a page
+		@Test
+		public void test_abuseReportPost() throws IOException, InterruptedException{
+			welcomePage = new WelcomePage(driver);
+			commentPageObjects = new CommentPageObjects();
+			homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+			Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+			homePage = homePage.clickAbuseReport();
+		}
+		
+	//Test to abuse report post of a page
+		@Test
+		public void test_copyRightReportPost() throws IOException, InterruptedException{
+			welcomePage = new WelcomePage(driver);
+			commentPageObjects = new CommentPageObjects();
+			homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+			Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+			homePage = homePage.clickCopyRightReport();
+		}
+	
+	//Test to abuse report post of a page
+		@Test
+		public void test_spamReportPost() throws IOException, InterruptedException{
+			welcomePage = new WelcomePage(driver);
+			commentPageObjects = new CommentPageObjects();
+			homePage = welcomePage.waitforWelcomePage(driver).clickonLogin(driver).waitforLoginPage(driver).enterValidCredentails(driver).waitforHomePage(driver);
+			Assert.assertTrue(homePage.verifySearchBtnDisplayed(driver));
+			homePage = homePage.clickSpamReport();
+		}	
+		
+	 @AfterMethod(alwaysRun = true)
 	 public void afterClass() {
 		 driver.quit();
 	    }

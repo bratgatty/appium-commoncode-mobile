@@ -1,5 +1,7 @@
 package com.mara.mentor.pageobjects;
 
+import java.util.List;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -22,7 +24,6 @@ public class HomePageObjects {
     @AndroidFindBy(xpath="//android.widget.ImageButton[1]")
     @iOSFindBy(xpath = "//UIAButton[4]")
     public MobileElement SIDENAVIGATIONBTN;
-    
 
     //MobileElement for first post commenticon
     @AndroidFindBy(id="com.mara.maramentor:id/commentcount_imageview")
@@ -35,6 +36,28 @@ public class HomePageObjects {
     //MobileElement for comment count
     @AndroidFindBy(id="com.mara.maramentor:id/commentcount_textview")
     public MobileElement commentCount;
+    
+    //MobileElement for delete button
+    @AndroidFindBy(name="DELETE")
+    public List<MobileElement> deletePostButton;
+    
+  //MobileElement for report button
+    @AndroidFindBy(name="REPORT")
+    public List<MobileElement> reportPostButton;
+    
+    //MobileElement for Abuse 
+    @AndroidFindBy(name="Abuse")
+    public MobileElement abuseReportButton;
+    
+  //MobileElement for Copy right content 
+    @AndroidFindBy(name="Copy right content")
+    public MobileElement copyRightReportButton;
+    
+  //MobileElement for Spam 
+    @AndroidFindBy(xpath="//android.widget.CheckedTextView[@text='Spam']")
+    public MobileElement spamReportButton;
+    
+    
 
     @AndroidFindBy(id = "com.mara.maramentor:id/search_view")
     public MobileElement searchTextField;
