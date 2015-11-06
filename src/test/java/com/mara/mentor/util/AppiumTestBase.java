@@ -32,10 +32,16 @@ public abstract class AppiumTestBase {
     }
 
 
+    
     public static int randomFunc(int n)
 	{
 		Random random=new Random();
 		return random.nextInt(n);
 	}
 
+    public static void scrollTo(String value)
+    {
+    	driver.scrollToExact(value);
+    }
+    
 }

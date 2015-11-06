@@ -21,4 +21,8 @@ public class SideNavigationObjects {
     @AndroidFindBy(name="Discussion Forums")
     @iOSFindBy(name="Discussion Forums")
     public MobileElement discussionForumButton;
+    
+    @AndroidFindBy(name="Mentors")
+    @iOSFindBy(name="Mentors")
+    public MobileElement mentorsButton;
 }
