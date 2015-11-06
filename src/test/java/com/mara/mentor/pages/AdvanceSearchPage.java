@@ -137,7 +137,7 @@ public AdvanceSearchPage searchByNameandCountry()
 			return true;
 		} else {
 			Reporter.log("Page Title : "+advanceSearchPageObjects.advanceSearchPageTitle.getText());
-			return true;
+			return false;
 		}
 	}
   

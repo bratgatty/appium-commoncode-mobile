@@ -16,7 +16,7 @@ public class DiscussionForumPageObject
     @iOSFindBy(name="Discussion Forums")
     public MobileElement discussionForumPageTitle;
 	
-	@AndroidFindBy(id = "com.mara.maramentor:id/qa_heading_textview")
+	@AndroidFindBy(id = "com.mara.maramentor:id/qa_hashtags_textview")
     @iOSFindBy(xpath="//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIATextView[1]")
     public MobileElement questionHeading;
 	

@@ -58,7 +58,7 @@ public class SideNavigationPage extends AppiumTestBase{
 
     //To click on mentors button	
 	  public MentorPage mentorsTap(AppiumDriver<MobileElement> driver){
-     	sideNavigationObjects.discussionForumButton.click();
+     	sideNavigationObjects.mentorsButton.click();
      	return new MentorPage(driver);
 	  }
 
