@@ -48,6 +48,11 @@ public class SideNavigationPage extends AppiumTestBase{
     	 public DiscussionForumPage discussionForumTap(AppiumDriver<MobileElement> driver){
     	    	sideNavigationObjects.discussionForumButton.click();
     	    	return new DiscussionForumPage(driver);
+    	 }
+    	    	
+    	    	public MentorPage mentorsTap(AppiumDriver<MobileElement> driver){
+        	    	sideNavigationObjects.discussionForumButton.click();
+        	    	return new MentorPage(driver);
     	
     }
 }
