@@ -10,8 +10,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-
-
 public class SideNavigationPage extends AppiumTestBase{
 	
 	SideNavigationObjects sideNavigationObjects = new SideNavigationObjects();
@@ -37,6 +35,19 @@ public class SideNavigationPage extends AppiumTestBase{
 		return new ProfilePage(driver);
 	}
 	
+	//To click on Mentor One to One
+	public MentorConnectPage tapMentorOnetoOne(AppiumDriver<MobileElement> driver)
+	{
+		sideNavigationObjects.MENTORCONNECTBTN.click();
+		return new MentorConnectPage(driver);
+	}
+	
+	//To click on Mentors 
+	public MentorsPage tapMentors(AppiumDriver<MobileElement> driver)
+	{
+		sideNavigationObjects.mentorsButton.click();
+		return new MentorsPage(driver);
+	}
 	
 	  //Method to logout
     public WelcomePage logout(AppiumDriver<MobileElement> driver){
@@ -44,15 +55,18 @@ public class SideNavigationPage extends AppiumTestBase{
 		sideNavigationObjects.YESOKBTN.click();
     	return new WelcomePage(driver);
     }
-    	
-    	 public DiscussionForumPage discussionForumTap(AppiumDriver<MobileElement> driver){
-    	    	sideNavigationObjects.discussionForumButton.click();
-    	    	return new DiscussionForumPage(driver);
-    	 }
-    	    	
-    	    	public MentorPage mentorsTap(AppiumDriver<MobileElement> driver){
-        	    	sideNavigationObjects.discussionForumButton.click();
-        	    	return new MentorPage(driver);
+
+    //To click on mentors button	
+	  public MentorPage mentorsTap(AppiumDriver<MobileElement> driver){
+     	sideNavigationObjects.discussionForumButton.click();
+     	return new MentorPage(driver);
+	  }
+
+    //To click on DiscussionForum 
+    public DiscussionForumPage discussionForumTap(AppiumDriver<MobileElement> driver){
+    	sideNavigationObjects.discussionForumButton.click();
+    	return new DiscussionForumPage(driver);
+
     	
     }
 }

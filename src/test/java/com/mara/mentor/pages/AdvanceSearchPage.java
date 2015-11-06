@@ -186,7 +186,7 @@ public AdvanceSearchPage searchByNameandCountry()
   
   
   
-//Common Function to be used for searching a user by its country -----This function needs modification
+//Common Function to be used for searching a user by its country -----This function needs modification both for IOS and android
   public void countryValidationFunction()
   {
 	  
